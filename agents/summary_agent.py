@@ -2,7 +2,7 @@
 Summary Agent — synthesizes findings from all specialist agents into a final report.
 Exposed as a LangGraph node function: summary_node(state) -> state update.
 """
-from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 
 SYSTEM_PROMPT = """You are a senior medical writer producing structured safety reports.
@@ -18,8 +18,12 @@ Synthesize these into a structured report with three sections:
 3. **Recommended Action** — one clear next step (e.g. "Submit as is", "Obtain missing onset date before submission")
 
 Keep the report under 200 words. Be direct and actionable."""
-
-_llm = ChatAnthropic(model="claude-haiku-4-5-20251001")
+_llm = ChatOpenAI(
+    model='deepseek-chat', 
+    openai_api_key=os.getenv("DEEPSEEK_API_KEY"), 
+    openai_api_base='https://api.deepseek.com',
+    max_tokens=1024
+)
 
 
 def summary_node(state: dict) -> dict:
