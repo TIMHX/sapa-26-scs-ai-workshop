@@ -2,6 +2,7 @@
 Severity Agent — evaluates the clinical severity of an adverse event.
 Exposed as a LangGraph node function: severity_node(state) -> state update.
 """
+import os
 from langgraph.prebuilt import create_react_agent
 from langchain_openai import ChatOpenAI
 from .tools import calculate_severity_score, lookup_drug_class

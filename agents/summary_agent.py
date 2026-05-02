@@ -2,6 +2,7 @@
 Summary Agent — synthesizes findings from all specialist agents into a final report.
 Exposed as a LangGraph node function: summary_node(state) -> state update.
 """
+import os
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 

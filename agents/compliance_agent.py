@@ -2,6 +2,7 @@
 Compliance Agent — checks whether the AE report contains all required fields.
 Exposed as a LangGraph node function: compliance_node(state) -> state update.
 """
+import os
 from langgraph.prebuilt import create_react_agent
 from langchain_openai import ChatOpenAI
 from .tools import check_required_fields
