@@ -15,7 +15,7 @@ Given an adverse event report, your job is to:
 
 Be factual and concise. Do not invent information not present in the report."""
 
-llm = ChatOpenAI(
+_llm = ChatOpenAI(
     model='deepseek-chat', 
     openai_api_key=os.getenv("DEEPSEEK_API_KEY"), 
     openai_api_base='https://api.deepseek.com',
